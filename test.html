@@ -15,35 +15,34 @@
         </style>
     </head>
     <body>
-        <!--input±êÇ©ÄÚ×¢×¢²áÁËÁ½¸öÊÂ¼þ(onfocus/onblur²¢ÇÒÊÂ¼þÒÑ¾­°ó¶¨ÁËº¯Êý)-->
+       
         <input type='text' class='gray' id='tip' value='enter' onfocus='Enter();'  onblur='Leave();'/>
         <button id='bt' onclick='click'>enter</button>
         <script type="text/javascript">
-            function Enter(){ //º¯ÊýEnterµÄ×÷ÓÃ,µ±ÔªËØ»ñµÃ½¹µã¾Í°ÑÀïÃæµÄÖµÉèÖÃÎª¿Õ²¢°ÑÑÕÉ«ÉèÖÃÎªºÚÉ«
-               var id= document.getElementById("tip"); //ÕÒµ½idÎªtipµÄ±êÇ©²¢¸³Öµ¸øid
-               id.className = 'black'; //¸øidµÄclassÉèÖÃÎªblack
+            function Enter(){ 
+               var id= document.getElementById("tip"); 
+               id.className = 'black'; 
                if(id.value=='enter'||id.value.trim()==''){
                     id.value = ''
-               } //ÅÐ¶ÏÕÒµ½µÄ±êÇ©µÄvalue='ÇëÊäÈë¹Ø¼üÀï'»òÕßÄãÊäÈëµÄÄÚÈÝÎª¿Õ
+               } 
             }
-            function Leave(){ //º¯ÊýLeaveµÄ×÷ÓÃ,µ±ÔªËØÊ§È¥½¹µã¾Í°ÑÀïÃæµÄÖµÉèÖÃÎª"ÇëÊäÈë¹Ø¼ü×Ö"²¢°ÑÑÕÉ«ÉèÖÃÎª»ÒÉ«
-                var id= document.getElementById("tip"); //ÕÒµ½idÎªtipµÄ±êÇ©²¡¸³ÖµÎªid
-                var val = id.value; //°ÉidµÄvalueÊôÐÔ¸³ÖµÎªval
+            function Leave(){ 
+                var id= document.getElementById("tip"); 
+                var val = id.value; 
                 if(val.length==0||id.value.trim()==''){
                     id.value = 'enter';
                     id.className = 'gray';
                 }else{
                     id.className = 'black';
-                } //ÅÐ¶ÏÈç¹ûvalµÄ³¤¶ÈÎª0,»òÕßÓÃ»§ÊäÈëÎª¿Õ×Ö·û,°ÉidµÄvalueÉèÖÃÎª"ÇëÊäÈë¹Ø¼ü×Ö"
-                  //·ñÔò°Éid.classÉèÖÃÎªblack
+                } 
             }
             $('#bt').click(function(){
                 $.ajax({
                     type:"get",
-                    url:"http://127.0.0.1:5000/get",
+                    url:"http://127.0.0.1:5000/index.html",
                     datatype:"json",
                     success:function(data) {
-                        alert(data['word'])
+                        alert(data)
                     }
 
                 })
